@@ -1,0 +1,23 @@
+extends layout
+block content
+  table
+    thead
+      tr
+        th url
+        th short link
+        th # clicks
+        th created
+
+
+    each link in locals.links
+      tr
+        td #{link.url}
+        td #{link.shortLink}
+        td #{link.clickCount}
+        td #{link.created}
+
+  ul
+    li
+      a(href='#{locals.previousLink}') previous
+    li
+      a(href='#{locals.nextLink}') next

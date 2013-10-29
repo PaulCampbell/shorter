@@ -1,0 +1,5 @@
+{
+  "mongoConnectionString": "mongodb://localhost/accorciare_dev",
+  "port": "7999",
+  "domain": "http://localhost:7999"
+}
