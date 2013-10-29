@@ -43,7 +43,6 @@ function handleError(err,res,status) {
     res.statusCode = status
     res.end();
   } else {
-    console.log(err)
     res.statusCode = 400
     res.end(JSON.stringify(err));
   }
