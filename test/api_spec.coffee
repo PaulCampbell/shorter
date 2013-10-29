@@ -71,7 +71,6 @@ describe 'review api', ->
       opts = {url: link.shortLink, method: 'get'}
       request opts, (err, res) ->
         res.statusCode.should.equal 302
-        console.log res.headers
         done()
 
     it 'increments the click count', (done) ->
