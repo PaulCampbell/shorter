@@ -7,11 +7,11 @@ var app = express();
 
 mongoose.connect(config.mongoConnectionString);
 
-app.use(express.static(__dirname + '/public'));
 app.use(express.bodyParser());
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(require('stylus').middleware(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 
 
 routes.init(app);

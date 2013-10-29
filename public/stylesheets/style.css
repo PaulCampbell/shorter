@@ -1,0 +1,19 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #444;
+  background-color: #dedede;
+}
+table {
+  width: 100%;
+}
+table thead {
+  width: 100%;
+}
+table td {
+  padding: 5px 5px 5px 0;
+  vertical-align: top;
+}
+table thead th {
+  padding-right: 10px;
+  text-align: left;
+}
