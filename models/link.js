@@ -1,13 +1,19 @@
 var mongoose = require('mongoose');
 var shortId = require('shortid');
 var config = require('../config/config.json');
+var mongooseValidator = require('mongoose-validator');
+
 var Schema = mongoose.Schema;
+var validator = mongooseValidator.validator;
+
+var domainValidator = [validator.isUrl('Must be valid url')];
 
 var LinkSchema = new Schema({
   url: {
     type: String,
     required:true,
-    unique: true
+    unique: true,
+    validate: domainValidator
   },
   urlId: {
     type: String

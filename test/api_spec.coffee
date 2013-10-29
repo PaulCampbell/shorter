@@ -26,6 +26,12 @@ describe 'review api', ->
         should.exist res.headers.location
         done()
 
+    it 'returns 400 for invalid link', (done) ->
+      opts = {url: 'http://localhost:7999/link', method: 'post', form: { url: 'not a link' }}
+      request opts, (err, res) ->
+        res.statusCode.should.equal 400
+        done()
+
 
 
 
