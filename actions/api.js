@@ -18,14 +18,22 @@ exports.get = function(req,res) {
 
 exports.post = function(req,res) {
   var link = new Links.Link(req.body);
-  link.save(function(err){
-    if(err){
-      return handleError(err,res);
+  Links.Link.findOne({url: link.url }, function(err, existingLink) {
+    if(existingLink) {
+      res.setHeader('Location', existingLink.shortLink);
+      res.statusCode = 200
+      res.end();
+    } else {
+    link.save(function(err){
+      if(err){
+        return handleError(err,res);
+      }
+      res.setHeader('Location', link.shortLink);
+      res.statusCode = 201
+      res.end();
+    });
     }
-    res.setHeader('Location', link.shortLink);
-    res.statusCode = 201
-    res.end();
-  });
+  })
 }
 
 

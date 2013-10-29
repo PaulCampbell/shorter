@@ -32,6 +32,26 @@ describe 'review api', ->
         res.statusCode.should.equal 400
         done()
 
+    describe 'creating the same link twice', (done) ->
+      link = null
+      testLinkUrl  = 'http://www.shopa.com/product/2'
+
+      before (done) ->
+        link = new Links.Link {url: testLinkUrl}
+        link.save ->
+          done()
+
+      after (done) ->
+        Links.Link.remove {url:testLinkUrl} , ->
+          done()
+
+      it 'returns a 200 with appropriate location header', (done) ->
+        opts = {url: 'http://localhost:7999/link', method: 'post', form: { url: testLinkUrl }}
+        request opts, (err, res) ->
+          res.statusCode.should.equal 200
+          res.headers.location.should.equal link.shortLink
+          done()
+
 
 
 
