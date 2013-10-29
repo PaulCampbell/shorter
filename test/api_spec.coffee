@@ -8,7 +8,7 @@ config = require '../config/config.json'
 
 request = request.defaults({jar: true, followRedirect: false})
 
-describe 'review api', ->
+describe 'Accorciare api', ->
   testUrl = 'http://www.someLink.com/asdasd'
   before (done) ->
     mongoose.connect(config.mongoConnectionString)
