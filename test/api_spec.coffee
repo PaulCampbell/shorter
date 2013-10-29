@@ -80,6 +80,13 @@ describe 'Accorciare api', ->
           link.clickCount.should.greaterThan 0
           done()
 
+    it 'does not change the links short code', (done) ->
+      opts = {url: link.shortLink, method: 'get'}
+      request opts, (err, res) ->
+        Links.Link.findOne {url:testLinkUrl}, (err, theLink) ->
+          theLink.urlId.should.equal link.urlId
+          done()
+
     describe.skip 'wip', ->
       it 'logs a visit', (done) ->
         opts = {url: link.shortLink, method: 'get'}

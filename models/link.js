@@ -38,7 +38,9 @@ LinkSchema.virtual('shortLink').get(function() {
 });
 
 LinkSchema.pre('save', function(next) {
-  this.urlId = shortId.generate()
+  if(this.isNew){
+    this.urlId = shortId.generate()
+  }
   return next();
 });
 
