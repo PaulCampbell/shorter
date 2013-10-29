@@ -17,19 +17,23 @@ To run the tests `mocha`
 
 ## Make your links shorter, yeah?
 
-    `curl --data "url=http://LongUrl.com/this-really-is-a-long-url" http://localhost:7999/`
+    curl --data "url=http://LongUrl.com/this-really-is-a-long-url" http://localhost:7999/
 
 _Response_
+
     statuscode → 201
+    
     location header → http://localhost:7999/g1lSIpB-4
 
 
 ## Resolve to the full link
 
-    `curl http://localhost:7999/g1lSIpB-4`
+    curl http://localhost:7999/g1lSIpB-4
 
 _Response_
+
     statuscode → 302
+
     location header → http://LongUrl.com/this-really-is-a-long-url
 
 
