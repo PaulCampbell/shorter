@@ -54,7 +54,6 @@ describe 'review api', ->
 
 
 
-
   describe 'get short valid link', ->
     link = null
     testLinkUrl  = 'http://www.shopa.com/product/1233wqesad32-amazingproductinnit'
